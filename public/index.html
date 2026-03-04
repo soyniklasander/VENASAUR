@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Consulta las líneas móviles registradas a tu nombre en todas las operadoras del Perú - OSIPTEL" />
+  <title>Checa tus Líneas | OSIPTEL Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📱</text></svg>" />
+  <!-- SheetJS for XLSX export -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+</head>
+
+<body>
+  <!-- Animated Background -->
+  <div class="bg-animation">
+    <div class="orb"></div>
+    <div class="orb"></div>
+    <div class="orb"></div>
+  </div>
+  <div class="grid-pattern"></div>
+
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <div class="logo-badge">
+        <span class="dot"></span>
+        OSIPTEL Checker
+      </div>
+      <h1>Checa tus Líneas</h1>
+      <p>Consulta las líneas móviles registradas a tu nombre en todas las operadoras del Perú</p>
+    </header>
+
+    <!-- Search Card -->
+    <div class="card" id="searchCard">
+      <!-- Tabs -->
+      <div class="tabs-container">
+        <button class="tab-btn active" data-tab="tab-single">DNI Solo</button>
+        <button class="tab-btn" data-tab="tab-multiple">DNI Varios</button>
+      </div>
+
+      <!-- Tab Content: Single Query -->
+      <div class="tab-content active" id="tab-single">
+        <form id="consultaForm" autocomplete="off">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="tipoDocumento">
+                Tipo de Documento <span class="required">*</span>
+              </label>
+              <div class="select-wrapper">
+                <select id="tipoDocumento" required>
+                  <option value="" disabled selected>Seleccionar...</option>
+                  <option value="1">DNI</option>
+                  <option value="2">RUC</option>
+                  <option value="3">Carné de Extranjería</option>
+                  <option value="4">Pasaporte</option>
+                  <option value="5">Doc. Legal SNM</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="numeroDocumento">
+                N° Documento <span class="required">*</span>
+              </label>
+              <input type="text" id="numeroDocumento" placeholder="Ingrese su número" required autocomplete="off" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit" id="btnSubmit">
+            <span class="btn-content">
+              <span class="btn-icon">🔍</span>
+              <span>Consultar Línea</span>
+            </span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Tab Content: Multiple Query -->
+      <div class="tab-content" id="tab-multiple">
+        <form id="consultaFormMultiple" autocomplete="off">
+          <div class="form-group">
+            <label for="tipoDocumentoMultiple">
+              Tipo de Documento <span class="required">*</span>
+            </label>
+            <div class="select-wrapper">
+              <select id="tipoDocumentoMultiple" required>
+                <option value="1" selected>DNI</option>
+                <option value="2">RUC</option>
+                <option value="3">Carné de Extranjería</option>
+                <option value="4">Pasaporte</option>
+                <option value="5">Doc. Legal SNM</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="numerosDocumentos">
+              Números de Documento <span class="required">*</span> <span
+                style="font-size: 0.75rem; color: var(--text-muted); font-weight: normal; text-transform: none;">(Uno
+                por línea o separados por coma)</span>
+            </label>
+            <textarea id="numerosDocumentos" placeholder="Ej:&#10;12345678&#10;87654321" required rows="4"></textarea>
+          </div>
+
+          <div style="display: flex; gap: 10px; margin-top: 10px;">
+            <button type="submit" class="btn-submit" id="btnSubmitMultiple" style="flex: 1;">
+              <span class="btn-content">
+                <span class="btn-icon">📋</span>
+                <span>Consultar Varios</span>
+              </span>
+            </button>
+            <button type="button" class="btn-submit" id="btnStopMultiple"
+              style="flex: 1; display: none; background: linear-gradient(135deg, var(--danger), #b91c1c);">
+              <span class="btn-content">
+                <span class="btn-icon">🛑</span>
+                <span>Detener Proceso</span>
+              </span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- Loading State -->
+      <div class="loader-container" id="loaderContainer">
+        <div class="loader-spinner"></div>
+        <div class="loader-text">
+          Consultando líneas registradas<span class="dots"></span>
+        </div>
+        <div class="loader-steps">
+          <div class="loader-step" id="step1">
+            <div class="step-icon">1</div>
+            <span>Conectando con OSIPTEL...</span>
+          </div>
+          <div class="loader-step" id="step2">
+            <div class="step-icon">2</div>
+            <span>Enviando consulta...</span>
+          </div>
+          <div class="loader-step" id="step3">
+            <div class="step-icon">3</div>
+            <span>Procesando resultados...</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Error / Info Messages -->
+      <div class="message-box error" id="errorBox">
+        <span class="msg-icon">⚠️</span>
+        <span class="msg-text" id="errorText"></span>
+      </div>
+
+      <div class="message-box info" id="infoBox">
+        <span class="msg-icon">ℹ️</span>
+        <span class="msg-text" id="infoText"></span>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <div class="results-section" id="resultsSection">
+      <div class="results-header">
+        <h2>📋 Resultados</h2>
+        <div>
+          <span class="results-badge success" id="resultsBadge"></span>
+        </div>
+      </div>
+
+      <div class="results-table-container">
+        <table class="results-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Documento</th>
+              <th>Operador</th>
+              <th>Modalidad</th>
+              <th>Teléfono</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
+      </div>
+
+      <div style="margin-top: 20px; text-align: center; display: flex; justify-content: center; gap: 10px;">
+        <button class="btn-new" id="btnExportXlsx" type="button"
+          style="display: none; background: rgba(16, 185, 129, 0.1); color: #10b981; border-color: rgba(16, 185, 129, 0.3);">
+          📥 Exportar Excel (XLSX)
+        </button>
+        <button class="btn-new" id="btnNewQuery" type="button">
+          🔄 Nueva Consulta
+        </button>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>
+        Datos proporcionados por
+        <a href="https://checatuslineas.osiptel.gob.pe/" target="_blank" rel="noopener">
+          OSIPTEL - Organismo Supervisor de Telecomunicaciones
+        </a>
+      </p>
+      <p style="margin-top: 6px; opacity: 0.6;">
+        Esta herramienta consulta la información de forma automatizada.
+        Los datos son propiedad de OSIPTEL.
+      </p>
+    </footer>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>

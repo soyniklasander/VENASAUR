@@ -1,0 +1,514 @@
+<!DOCTYPE html><html lang="es" class=" sizes customelements history pointerevents postmessage webgl websockets cssanimations csscolumns csscolumns-width csscolumns-span csscolumns-fill csscolumns-gap csscolumns-rule csscolumns-rulecolor csscolumns-rulestyle csscolumns-rulewidth csscolumns-breakbefore csscolumns-breakafter csscolumns-breakinside flexbox picture srcset webworkers"><head><meta http-equiv="origin-trial" content="A7vZI3v+Gz7JfuRolKNM4Aff6zaGuT7X0mf3wtoZTnKv6497cVMnhy03KDqX7kBz/q/iidW7srW31oQbBt4VhgoAAACUeyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGUuY29tOjQ0MyIsImZlYXR1cmUiOiJEaXNhYmxlVGhpcmRQYXJ0eVN0b3JhZ2VQYXJ0aXRpb25pbmczIiwiZXhwaXJ5IjoxNzU3OTgwODAwLCJpc1N1YmRvbWFpbiI6dHJ1ZSwiaXNUaGlyZFBhcnR5Ijp0cnVlfQ==">
+
+    <meta http-equiv="content-Type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Herramienta digital que te permite descubrir cuántas líneas telefónicas existen a tu nombre.">
+
+    <title>OSIPTEL - Checa tus líneas</title>
+    <link href="/image/osiptel.ico" rel="shortcut icon" type="image/x-icon">
+    <link type="text/css" href="/lib/fontawesome-free-5.11.1/css/all.min.css?v=P6_PhK0G1qhqCyHsmleGt7lOH4kPXEMRBsrfnHB_r_4" rel="stylesheet" media="all">
+    <link type="text/css" href="/lib/bootstrap-4.3.1/css/bootstrap.min.css?v=rldnE7wZYJj3Q43t5v8fg1ojKRwyt0Wtfm-224CacZs" rel="stylesheet" media="all">
+    <link type="text/css" href="/lib/DataTables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css?v=5kqZOE9UKGPIlcw9l9UoxBPeecjBZUS8NilW9jzvHOc" rel="stylesheet" media="all">
+    <link type="text/css" href="/lib/DataTables/Responsive-2.2.3/css/responsive.bootstrap4.min.css?v=meOBNhQVvpjTt9om1j5ouTuaEDPJFRmR5KG1AQiwc0k" rel="stylesheet" media="all">
+    <link type="text/css" href="/lib/sweetalert2-9.4.0/package/dist/sweetalert2.min.css?v=w4cc42PyW4waV-7R-d_QM9PjYXwHKTk7J1_JcT8MAyw" rel="stylesheet" media="all">
+
+    <!-- ======================== NEW FORMAT ======================== -->
+    <!-- Animate css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/animate.min.css?v=JpaENXA_QvVIGV4xBJ4fYhwmc0agKVviuvpFe1kErOk" media="all">
+    <!-- Jquery ui price slider css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/jquery-ui.min.css?v=Wnh2wv4hGay7DyB-PUTo8T2BCxZIRviAvqTIZO7ckyk" media="all">
+    <!-- Owl carousel css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/owl.carousel.min.css?v=VAwEJEHEn97Xx-2DBL0pCnbpkC7pMkrmNQRVMQQFUvY" media="all">
+    <!-- Custom css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/default.min.css?v=ouMTgY1YdMu6iHJXTFlVHZG11oIKV_NndpN6A6pESXQ" media="all">
+    <!-- Main css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/style.min.css?v=SolyQvpFNpSjeM8eSN7cTiZgu4wYOiCTVYH6sX11jjE" media="all">
+    <!-- Responsive css -->
+    <link async="" type="text/css" rel="stylesheet" href="/css/app/responsive.min.css?v=iqc_wvetwSxWSPjKmWrAwDThjPK9JAwc32dHrqv9VC0" media="all">
+
+    <link async="" type="text/css" rel="stylesheet" href="/css/site.min.css?v=ayTrO9rpdg9eTuq4G7EYxLBL8lfSuafzk522sMpJzdY" media="all">
+
+    <style>
+        /* START: ADD RSM 16/01/2024 */
+
+        .bg-azul {
+            background-color: #2664AE;
+        }
+
+        .servicios p {
+            color: #FFFFFF;
+            font-size: 13px;
+            line-height: normal;
+        }
+
+        .servicios .col-md-4 {
+            display: block;
+            padding-bottom: 40px;
+        }
+
+        .servicios h3 {
+            color: #FFFF;
+            line-height: 1.25;
+            margin: 0;
+            font-size: 1.50rem;
+            text-transform: none;
+        }
+
+            .servicios h3::before {
+                background: #FFF none repeat scroll 0 0;
+                bottom: 20px;
+                content: "";
+                height: 2px;
+                left: 50%;
+                margin-left: -25px;
+                position: absolute;
+                width: 50px;
+            }
+
+        .servicios img {
+            max-width: 100px;
+            height: auto;
+            padding-right: 10px;
+        }
+
+        .servicios .logoc {
+            display: table-cell;
+            vertical-align: top;
+        }
+
+        .servicios .info {
+            display: table-cell;
+            padding-left: 15px;
+        }
+
+        .bt-50 {
+            padding-bottom: 50px;
+        }
+
+        /* END: ADD RSM 16/01/2024 */
+    </style>
+
+</head>
+<body>
+
+    <div class="wrapper">
+
+        <!-- Header Area Start Here -->
+        <header class="absolute-header header-area header-style-two header-sticky">
+            <div class="container">
+                <div class="row align-items-center">
+                    <!-- Logo Start -->
+                    <div class="col-xl-3 col-lg-3 col-6">
+                        <div class="logo">
+                            <a href="https://checatuslineas.osiptel.gob.pe/">
+                                <img src="/image/app/logo-checa-lineas.png" width="100%" height="100%" alt="logo-image">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Logo End -->
+                    <!-- Menu Area Start Here -->
+                    <div class="col-xl-6 col-lg-8 d-none d-lg-block">
+
+                    </div>
+                    <!-- Menu Area End Here -->
+                    <!-- Cart Box Start Here -->
+                    <div class="col-xl-3 col-lg-1 col-6">
+                        <div class="logo2">
+                            <a href="https://www.osiptel.gob.pe/" target="_blank">
+                                <img src="/image/app/logo_osiptel_gris.svg" width="100%" height="100%" alt="logo-image">
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Cart Box End Here -->
+                </div>
+                <!-- Row End -->
+
+            </div>
+            <!-- Container End -->
+        </header>
+        <!-- Header Area End Here -->
+        <!-- Slider Area Start -->
+        <div class="slider-area slider-style-three">
+            <!-- Slider Area Start Here -->
+            <div class="slider-activation owl-carousel owl-loaded owl-drag">
+
+
+                <!-- Start Single Slide -->
+                
+                <!-- End Single Slide -->
+                <!-- Start Single Slide -->
+                <!--<div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="~/image/app/banner-lineas.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>-->
+                <!-- End Single Slide -->
+
+            <div class="owl-stage-outer owl-height" style="height: 360px;"><div class="owl-stage" style="transform: translate3d(-1600px, 0px, 0px); transition: all; width: 4000px;"><div class="owl-item cloned" style="width: 800px;"><div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="/image/app/banner-web-checa-tus-lineas.webp" width="100%" height="100%" alt="banner-checa">
+                            </div>
+                        </div>
+                    </div>
+                </div></div><div class="owl-item cloned" style="width: 800px;"><div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="/image/app/banner-web-checa-tus-lineas.webp" width="100%" height="100%" alt="banner-checa">
+                            </div>
+                        </div>
+                    </div>
+                </div></div><div class="owl-item active" style="width: 800px;"><div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="/image/app/banner-web-checa-tus-lineas.webp" width="100%" height="100%" alt="banner-checa">
+                            </div>
+                        </div>
+                    </div>
+                </div></div><div class="owl-item cloned" style="width: 800px;"><div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="/image/app/banner-web-checa-tus-lineas.webp" width="100%" height="100%" alt="banner-checa">
+                            </div>
+                        </div>
+                    </div>
+                </div></div><div class="owl-item cloned" style="width: 800px;"><div class="slide align-center-left fullscreen animation-style-02">
+                    <div class="">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="/image/app/banner-web-checa-tus-lineas.webp" width="100%" height="100%" alt="banner-checa">
+                            </div>
+                        </div>
+                    </div>
+                </div></div></div></div><div class="owl-nav disabled"><button type="button" role="presentation" class="owl-prev"><i class="fa fa-angle-left"></i></button><button type="button" role="presentation" class="owl-next"><i class="fa fa-angle-right"></i></button></div><div class="owl-dots disabled"><button role="button" class="owl-dot active"><span></span></button></div></div>
+            <!-- Slider Area End Here -->
+        </div>
+        <!-- Slider Area End -->
+        <!-- Service Area Start Here -->
+        <div>
+            
+
+<div class="container">
+    <br>
+
+    <div class="card caixa-form">
+        <div class="card-body fntcssa">
+
+            <div class="form">
+                <form method="post" id="frmConsulta" novalidate="novalidate">
+                    <div class="form-group row">
+                        <div class="col-sm-3"></div>
+                        <div class="col-sm-3">
+                            <strong style="color:red;">(*)</strong><label class="col-auto col-form-label lblcss" for="IdTipoDoc">Tipo Documento:</label>
+                            <select class="form-control txtcss" data-val="true" data-val-required="Debe seleccionar el tipo de documento." id="IdTipoDoc" name="IdTipoDoc"><option value="">-- SELECCIONA --</option>
+<option value="3">CARNÉ DE EXTRANJERÍA</option>
+<option value="1">DNI</option>
+<option value="5">DOCUMENTO LEGAL DE IDENTIDAD VÁLIDO REQUERIDO POR LA SNM.</option>
+<option value="4">PASAPORTE</option>
+<option value="2">RUC</option>
+</select>
+                            <span class="text-danger field-validation-valid" data-valmsg-for="IdTipoDoc" data-valmsg-replace="true"></span>
+                        </div>
+                        <div class="col-sm-3">
+                            <strong style="color:red;">(*)</strong><label class="col-auto col-form-label lblcss" for="NumeroDocumento">N° Documento:</label>
+                            <input class="form-control txtcss" placeholder="N° Documento" type="text" data-val="true" data-val-length="El N° Documento: no puede tener más de 20 caracteres y menos de 8 caracteres" data-val-length-max="20" data-val-length-min="8" data-val-required="Debe ingresar el n° de documento." id="NumeroDocumento" maxlength="20" name="NumeroDocumento" value="">
+                            <span class="text-danger field-validation-valid" data-valmsg-for="NumeroDocumento" data-valmsg-replace="true"></span>
+                        </div>
+                    </div>
+                    <br>
+
+                    <input type="hidden" id="hiddenRecaptchaKey" value="6LdcxV8dAAAAAMQZV05VmMp5TYlQJGoGQjv6FgX8">
+                    <input type="hidden" id="hiddenRecaptchaKeySIRSNC" value="6LdcxV8dAAAAAMQZV05VmMp5TYlQJGoGQjv6FgX8">
+                    <input type="hidden" id="hiddenAction" value="NjDC27se4YibWYEf7u8LcLLQ">
+                    <input type="hidden" id="hiddenActionSIRSNC" value="redirect_SIRSNC">
+                    <input type="hidden" id="hiddenBaseUrlSIRSNC" value="https://sistemasweb.osiptel.gob.pe/SIRSNC/auth/login">
+                    <input type="hidden" id="hiddenDni" value="">
+                    <div id="dvCaptcha"></div>
+                    <input type="hidden" id="GoogleCaptchaToken" name="GoogleCaptchaToken" value="">
+                    <input type="hidden" id="GoogleCaptchaTokenOLD" name="GoogleCaptchaTokenOLD" value="">
+
+                    <br>
+
+                    <div class="form-group row">
+                        <div class="col-sm-12" style="text-align: center;">
+                            <button id="btnBuscar" class="btn btn-outline-primary btn-sm"><i class="fas fa-search"></i> Consultar</button>
+                        </div>
+                    </div>
+                    <br>
+
+                    <div class="fntcssa" id="strResult" style="display: none;">
+                        <hr>
+                        <div class="text-left">
+                            <strong><h5 class="stitcss my-0" id="strResultado" style="display: none;"></h5></strong>
+                        </div>
+                        <br>
+                        <div class="form-group row">
+                            <div id="listConsulta" class="col-12" style="display: none;">
+                                <table id="GridConsulta" class="table table-custom table-striped table-bordered table-condensed table-hover dt-responsive nowrap" style="width:100%">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center thcolor" width="%">N°</th>
+                                            <th class="text-center thcolor" width="15%">Modalidad</th>
+                                            <th class="text-center thcolor" width="10%">Número Telefónico</th>
+                                            <th class="text-center thcolor" width="25%">Empresa Operadora</th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <hr>
+                            </div>
+                        </div>
+
+                        <div id="ctrData" style="display: none;">
+                            <div class="fntcssc" style="text-align:center;">
+                                <p>
+                                    <strong>No se encontraron resultados con los datos ingresados en su consulta.</strong>
+                                </p>
+                            </div>
+                            <br>
+                        </div>
+
+                        <div id="ctrlistado" style="display: none;">
+                            <div class="msjcss fntcssb" style="text-align:center;">
+                                <p id="msgIdPeru" style="display: none;">
+                                    <i class="fas fa-info-circle"></i> El botón <strong>"No reconozco una o más líneas"</strong> lo redirigirá al formulario para reportar las líneas no reconocidas. <br> Para completar el proceso, asegúrese de <strong>tener instalada la app ID Perú en su celular.</strong><br>
+                                    Para una mejor experiencia, se recomienda acceder a este servicio desde una computadora o laptop.
+                                </p>
+                                <button id="btnNoReconozco" class="btn btn-outline-primary-inv btn-lg" type="button" style="display:none;">
+                                    <i class="fas fa-exclamation-triangle"></i> No reconozco una o más líneas
+                                </button>
+                                <hr id="hrSeparator" style="display: none;">
+                                <p style="margin-bottom: 0rem;">
+                                    </p><div id="msgLineasNoReconocidas">
+                                        <strong>Si no reconoces alguna línea móvil, puedes cuestionar o desconocer la contratación. Infórmate en: <a class="lnkcss" href="https://www.gob.pe/9819-dar-de-baja-a-lineas-prepago-registradas-a-tu-nombre-que-no-reconoces" target="_blank"><strong class="clsStrong">Líneas móviles no reconocidas.</strong></a></strong>
+                                    </div>
+                                    <strong>Si encontraste inconsistencias con los resultados de tu búsqueda, puedes escribirnos registrando tu información al siguiente formulario:</strong> <a class="lnkcss" href="https://forms.office.com/r/jTpeDEpkxp" target="_blank"><strong class="clsStrong">Reporta Checa tus Líneas</strong></a>
+                                <p></p>
+                            </div>
+                            <br>
+                        </div>
+                    </div>
+                <input name="__RequestVerificationToken" type="hidden" value="CfDJ8KooFWgkr9RLqLOu7jbp0abaQ_C0l_5X-ByvfZshX5WPrWvl_55vRjuhy1yVBw2yEzIsK9DFYH9I5B4OQabfmEiqnFQxBd93vRqQiP1uraRlI09ulI8LJHwEWrEJs1bw2TlQRFByE2t7H4BYkZELkpk"></form>
+            </div>
+
+        </div>
+    </div>
+
+    <br>
+    <br>
+</div>
+
+
+        </div>
+        <!-- Service Area End  Here -->
+        <!-- Servicios relacionados -->
+        <div class="bg-azul servicios">
+            <div class="container">
+                <div class="row align-items-center pt-80 bt-50">
+                    <div class="col-xl-12">
+                        <div class="section-title">
+                            <h3>Más herramientas a tu servicio</h3>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://www.osiptel.gob.pe/sistemas/sigem.html" target="_blank">                                
+                                <img src="/image/app/logo-checa-imei.png">
+                            </a>                            
+                        </div>
+                        <div class="info">
+                            <p>Aplicativo que permite consultar en línea si el código o serie electrónica(IMEI) que identifica a un celular, se encuentra registrado como robado, perdido o si ha sido desbloqueado al haberse recuperado.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://www.checatuplan.pe/" target="_blank">
+                                <img src="/image/app/logo-checa-plan.png">
+                            </a>                            
+                        </div>
+                        <div class="info">
+                            <p>Herramienta digital que compara todos los planes de todas las empresas operadoras de internet móvil y tarifas de internet fijo, además calcula los datos para internet móvil y la velocidad de internet fijo que cada usuario realmente necesita.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://checatuequipomovil.osiptel.gob.pe/" target="_blank">
+                              
+                                <img src="/image/app/logo-checa-equipo.png">
+                            </a>
+                            
+                        </div>
+                        <div class="info">
+                            <p>Herramienta para comparar los precios de los equipos celulares que ofrecen las empresas operadoras en función de sus distintos planes y los que se pueden encontrar en tiendas por departamento y sitios on line.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://serviciosweb.osiptel.gob.pe/CoberturaMovil/" target="_blank">
+                                
+                                <img src="/image/app/logo-checa-senal.png">
+                            </a>                            
+                        </div>
+                        <div class="info">
+                            <p>Aplicativo informático, mediante el cual podrá conocer la cobertura del servicio móvil en cada una de las localidades que las empresas operadoras declaran al OSIPTEL.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://checatuinternetmovil.osiptel.gob.pe/" target="_blank">
+                                
+                                <img src="/image/app/logo-checa-internet.png">
+                            </a>
+                            
+                        </div>
+                        <div class="info">
+                            <p>Con esta herramienta puedes conocer o comparar el desempeño del servicio de internet móvil ofrecido por las principales empresas operadoras en tu distrito, provincia y región, puedes hacerlo.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- -->
+                    <div class="col-md-4">
+                        <div class="logoc">
+                            <a href="https://checatucaso.osiptel.gob.pe/#/autentica" target="_blank">
+                                
+                                <img src="/image/app/logo-checa-caso.png">
+                            </a>
+                            
+                        </div>
+                        <div class="info">
+                            <p>Herramienta que te permite registrar los problemas con tu operador y reportar los que no fueron solucionados. Si ya presentaste un reclamo, deberás seguir el procedimiento con tu operador.</p>
+                        </div>
+                    </div>
+                    <!-- -->
+                </div>
+            </div>
+        </div>
+        <!-- Servicios relacionados End Here -->
+        <!-- Footer Area Start Here -->
+        <!-- Footer Bottom Start -->
+        <div class="footer-bottom black-bg ptb-15">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-9">
+                        <div class="footer-copyright ">
+                            <p>OSIPTEL - Organismo Supervisor de la Inversión Privada en Telecomunicaciones </p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <ul class="lista-redes">
+                            <li>
+                                <a href="https://www.facebook.com/OsiptelOficial" target="_blank" aria-label="Facebook">
+                                    <img src="/image/app/footer_facebook.svg" width="30" height="30" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/OSIPTEL" target="_blank" aria-label="Twitter">
+                                    <img src="/image/app/footer_twitter.svg" width="30" height="30" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.instagram.com/osipteloficial/" target="_blank" aria-label="Instagram">
+                                    <img src="/image/app/footer_instagram.svg" width="30" height="30" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.youtube.com/channel/UCjp5AVeSh3_XKDxgG7Ob58A" target="_blank" aria-label="Youtube">
+                                    <img src="/image/app/footer_youtube.svg" width="30" height="30" alt="">
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://vm.tiktok.com/ZMN82ybnT/" target="_blank" aria-label="Tik Tok">
+                                    <img src="/image/app/footer_tik tok.svg" width="30" height="30" alt="">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- Footer Bottom End -->
+        <!-- Footer Area End Here -->
+
+    </div>
+    <!-- Main Wrapper End Here -->
+
+    <script type="text/javascript" async="" charset="utf-8" src="https://www.gstatic.com/recaptcha/releases/QvLuXwupqtKMva7GIh5eGl3U/recaptcha__es_419.js" crossorigin="anonymous" integrity="sha384-TNmvu8VpwtJPQiw+Ku3lkeOiPtWjDAJnJvXILbmVmxi+WgXeijyKmJJ3qRTTm9jh"></script><script async="" src="https://tracking.osiptel.gob.pe/matomo.js"></script><script type="text/javascript">
+        var rootPath = '/';
+    </script>
+
+    <!-- Matomo -->
+    <script type="text/javascript">
+        var _paq = window._paq = window._paq || [];
+        _paq.push(['trackPageView']);
+        _paq.push(['enableLinkTracking']);
+        (function () {
+            var u = "https://tracking.osiptel.gob.pe/";
+            _paq.push(['setTrackerUrl', u + 'matomo.php']);
+            _paq.push(['setSiteId', '36']);
+            var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+            g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+        })();
+    </script>
+    <!-- End Matomo Code -->
+
+    <script src="/lib/jquery-3.7.0/jquery-3.7.0.min.js?v=ZGvpTYxTCVHQCchVMjFZKwmOhwjahvvxMBnN5VAUh0I" type="text/javascript"></script>
+
+    <script defer="" src="/lib/DataTables/DataTables-1.10.20/js/jquery.dataTables.min.js?v=Ic31pqLjyuiJGKDNm-n6fAY8Aui_Os_RNGorJQk8yXs" type="text/javascript"></script>
+    <script defer="" src="/lib/DataTables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js?v=FcSCHpOsKNUjR-0G1YFbBNul3d1vU2KAcPr4Fn9deHA" type="text/javascript"></script>
+    <script defer="" src="/lib/DataTables/Responsive-2.2.3/js/dataTables.responsive.min.js?v=zet_4nww5O2_HhuuUt-_vDtEW95AhCZ8YMncZkM2BG0" type="text/javascript"></script>
+    <script defer="" src="/lib/DataTables/Responsive-2.2.3/js/responsive.bootstrap4.min.js?v=C1gNb96b5B3Yap_znG5LYDcQ0rOCN4EdO5wyExzekP8" type="text/javascript"></script>
+    <script defer="" src="/lib/jquery-unobtrusive-ajax-3.2.6/jquery.unobtrusive-ajax.min.js?v=PAC000yuHt78nszJ2RO0OiDMu_uLzPLRlYTk8J3AO10" type="text/javascript"></script>
+    <script defer="" src="/lib/jquery-validation-1.19.5/dist/jquery.validate.min.js?v=6e0N-WJiVKBeTitK1GKSwPi3rbdPpLtuqaiitZjeD2w" type="text/javascript"></script>
+    <script defer="" src="/lib/jquery-validate-unobtrusive-3.2.11/jquery.validate.unobtrusive.min.js?v=9GycpJnliUjJDVDqP0UEu_bsm9U-3dnQUH8-3W10vkY" type="text/javascript"></script>
+    <script defer="" src="/lib/jquery-validate-unobtrusive-bootstrap4/unobtrusive-bootstrap.js?v=VZtWi151OckYlQwPAIV6XqtTjSYEOLq-JPN9QYHYkFc" type="text/javascript"></script>
+    <script defer="" src="/lib/sweetalert2-9.4.0/package/dist/sweetalert2.min.js?v=sD2AGD66ifjrW_lQl_cyXzr2r1pU9tYRGDjNFH7ht1Y" type="text/javascript"></script>
+
+    <!-- ======================== NEW FORMAT ======================== -->
+    <!-- ScrollUp js -->
+    <script defer="" src="/js/app/app/jquery.scrollUp.min.js?v=l2rXp8P47OL-Fm6eZNzLdaZkGSVTCppdC7LULlfVLz4" type="text/javascript"></script>
+    <!-- Jquery ui price slider js -->
+    <script defer="" src="/lib/jquery-ui-1.13.2/jquery-ui.min.js?v=nZt15r-ZKW93l-0S9zE39Slm27AhgP8FTGwBaAx72x0" type="text/javascript"></script>
+    <!-- Owl carousel -->
+    <script defer="" src="/js/app/app/owl.carousel.min.js?v=TgeBvdLLtdsE2jteBZ7so04yX6u4k77nRXtbq_W3wCk" type="text/javascript"></script>
+    <!-- Bootstrap js -->
+    <!-- Plugin js -->
+    <script defer="" src="/js/app/app/plugins.min.js?v=DPdnW9BXsAN_hhJZyT4Re6GYb4PNnPntmSYMtW-MhR4" type="text/javascript"></script>
+    <!-- Main activaion js -->
+    <script defer="" src="/js/app/app/main.min.js?v=Znakz9aztXDkhTY62DT8CV0wkl6C2ZJrFdhl2-S18iM" type="text/javascript"></script>
+    <!-- Modernizer js -->
+    <script defer="" src="/js/app/app/vendor/modernizr-3.5.0.min.js?v=WZwk0H_Y9tjB9v1CfSEOTe_RFQ8sPspY1eKvK9p6LPQ" type="text/javascript"></script>
+
+    <script defer="" src="/js/app/lib/appmin/extensiones.min.js?v=AD_0s6MXMouYV7O8Yfxbhkb6ehnHC_ZGhE4lkTseMCE" type="text/javascript"></script>
+    <script defer="" src="/js/app/lib/appmin/alert.min.js?v=7NHz_RanX0tOfhhBCpg8JfC3ixZ1frhf2IiPql7QC64" type="text/javascript"></script>
+    <script defer="" src="/js/app/lib/appmin/utilitarios.min.js?v=bZNUXHlFpg9u3KD60RqdqJfMVqbMpLwsFCNhCfaUATI" type="text/javascript"></script>
+    <script defer="" src="/js/app/lib/appmin/consulta.min.js?v=zXUJpxGUsgG19DacNaQsIBzN05tGU7SPcl5mpRgzlCY" type="text/javascript"></script>
+
+    
+    <script type="text/javascript">
+        var ReCaptcha_Key = '6LdcxV8dAAAAAMQZV05VmMp5TYlQJGoGQjv6FgX8';
+    </script>
+    <script src="https://www.google.com/recaptcha/api.js?render=6LdcxV8dAAAAAMQZV05VmMp5TYlQJGoGQjv6FgX8" async="" defer=""></script>
+
+
+
+
+
+<a id="scrollUp" href="#top" style="display: none; position: fixed; z-index: 2147483647;"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a><div><div class="grecaptcha-badge" data-style="bottomright" style="width: 256px; height: 60px; display: block; transition: right 0.3s; position: fixed; bottom: 14px; right: -186px; box-shadow: gray 0px 0px 5px; border-radius: 2px; overflow: hidden;"><div class="grecaptcha-logo"><iframe title="reCAPTCHA" width="256" height="60" role="presentation" name="a-4wntnj5gnq3v" frameborder="0" scrolling="no" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-top-navigation allow-modals allow-popups-to-escape-sandbox allow-storage-access-by-user-activation" src="https://www.google.com/recaptcha/api2/anchor?ar=1&amp;k=6LdcxV8dAAAAAMQZV05VmMp5TYlQJGoGQjv6FgX8&amp;co=aHR0cHM6Ly9jaGVjYXR1c2xpbmVhcy5vc2lwdGVsLmdvYi5wZTo0NDM.&amp;hl=es-419&amp;v=QvLuXwupqtKMva7GIh5eGl3U&amp;size=invisible&amp;anchor-ms=20000&amp;execute-ms=30000&amp;cb=a2jm5bunbz4w"></iframe></div><div class="grecaptcha-error"></div><textarea id="g-recaptcha-response-100000" name="g-recaptcha-response" class="g-recaptcha-response" style="width: 250px; height: 40px; border: 1px solid rgb(193, 193, 193); margin: 10px 25px; padding: 0px; resize: none; display: none;"></textarea></div><iframe style="display: none;"></iframe></div></body></html>
