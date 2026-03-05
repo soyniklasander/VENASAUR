@@ -6,6 +6,9 @@ on:
     paths:
       - 'input.txt' # Triggers automatically when input.txt is updated and pushed
 
+permissions:
+  contents: write
+
 jobs:
   scrape_and_export:
     runs-on: ubuntu-latest
