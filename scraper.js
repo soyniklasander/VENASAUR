@@ -92,12 +92,17 @@ function saveExcel(data, chunkIndex, isFinal = false) {
                     const handler = async (response) => {
                         const url = response.url();
                         if (url.includes('GetAllCabeceraConsulta') || url.includes('apiConsulta')) {
-                            try {
-                                apiResponseText = await response.text();
-                                capturedData = JSON.parse(apiResponseText);
-                                page.off('response', handler);
-                                resolve();
-                            } catch (e) { resolve(); }
+                            // Only capture successful responses with body data to dodge pre-flight OPTIONS requests
+                            if (response.status() === 200) {
+                                try {
+                                    apiResponseText = await response.text();
+                                    if (apiResponseText.length > 20) {
+                                        capturedData = JSON.parse(apiResponseText);
+                                        page.off('response', handler);
+                                        resolve();
+                                    }
+                                } catch (e) { resolve(); }
+                            }
                         }
                     };
                     page.on('response', handler);
@@ -121,21 +126,24 @@ function saveExcel(data, chunkIndex, isFinal = false) {
                     // Actually, let's look at server.js to mimic the parsing accurately
                 }
 
-                // We'll mimic server.js direct response structure since site seems to return "aaData" or similar
+                // Parsing exact same way as server.js
                 let lineasFormateadas = [];
                 if (capturedData && capturedData.aaData) {
                     lineasFormateadas = capturedData.aaData.map((row) => {
                         let originalPhone = row[2];
                         let cleanPhone = typeof originalPhone === 'string' ? originalPhone.replace(/(<([^>]+)>)/gi, "").trim() : originalPhone;
+                        let cleanOperador = typeof row[3] === 'string' ? row[3].replace(/(<([^>]+)>)/gi, "").trim() : row[3];
+                        let cleanModalidad = typeof row[1] === 'string' ? row[1].replace(/(<([^>]+)>)/gi, "").trim() : row[1];
+
                         return {
                             documento: numero,
                             numero: row[0],
-                            operador: row[1],
+                            operador: cleanOperador,
                             telefono: cleanPhone,
-                            modalidad: row[3]
+                            modalidad: cleanModalidad
                         };
                     });
-                } else if (capturedData && capturedData.lineas) { // In case it's custom JSON format
+                } else if (capturedData && capturedData.lineas) {
                     lineasFormateadas = capturedData.lineas.map(l => ({ ...l, documento: numero }));
                 }
 
